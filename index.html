@@ -1,1 +1,119 @@
-<p> 66666</p>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<html>
+<head>
+	<title>体育馆场地预定登陆页面</title>
+	<script type="text/javascript">
+	function change() {
+		document.getElementById("validate").src="ValidateServlet?random="+Math.random();
+	}
+	</script>
+	<style type="text/css">
+	body{
+
+	}
+	.box{
+	position:relative;
+	lineheignt:160%;
+	margin:6px;
+	}
+	.box_t{
+	display:flex;
+	position:relative;
+	align-item:center;
+	lineheignt:160%;
+	margin:6px;
+	}
+	.text-t{
+	position:absolute;
+	left:90px;
+	line-height:160%;
+	}
+	.label{
+	position:absolute;
+	left:0px;
+	width:80px;
+	line-height:160%;
+	text-align:right;
+	}
+	.i_text{
+	position:relative;
+	left:90px;
+	line-height:160%;
+	}
+	.i_span{
+		position: absolute;
+		left:158px;
+		line-height: 35px;
+	}
+	#validate{
+	height: 4%;
+	}
+	.banner{
+	position:relative;
+	margin:0 auto;
+	weight:1000px;
+	height:600px;
+	background-image:url(theme-pic.jpg);
+	background-position:center;
+	background-size:100%;
+	background-attachment:fixed;
+	}
+	.aside{
+	position:sbsolute;
+	margin-left:64%;
+	width:400px;
+	padding:20px;
+	}
+	.from {
+	margin-top:50%;
+	}
+	from:frist-child:hover .box_t {
+	display:none;
+	}
+	.i_text:hover .box_t{
+	background:#333;
+	display:none;
+	}
+	</style>
+</head>
+<body>              
+<div class="banner">
+	<p align="center" style="font-size:30px">体育馆场地预定系统</p>
+	<div class="aside">
+		<form action="LoginRegister" method="post" class="from" onsubmit="return checkForm(this)">
+		<div class="box">
+		<label class="label"><b>*登录号:</b></label>
+		<input type="text" name="userId" size="16" class="i_text" placeholder="输入用户帐号">
+		</div>
+		<div class="box">
+		<label class="label"><b>*密码:</b></label>
+		<input type="password" name="password" size="16" maxlength="8" class="i_text" placeholder="">
+		</div>
+		<div class="box">
+		<label class="label"><b>*验证码:</b></label>
+				<input type="text" name="userVCode" class=i_text size="5">
+				<span class="i_text i_span">
+					<img src="ValidateServlet" id="validate" onclick="change()" />
+					<a href="javascript:change()" >看不清，换一张</a>
+					</span>
+		</div>
+		<div class="box">
+		<label class="label"><b>权&nbsp;&nbsp;&nbsp;&nbsp;限</b></label>
+		<span class="i_text i_span"> 
+		<input type="radio" name="auth" checked value="用户"><b>用户</b>
+		<input type="radio" name="auth" value="管理员"><b>管理员</b>
+		</span>	
+		</div>
+		<br>
+		<div class="box">
+		<table>
+			<tr><td colspan="3" align="center">
+			<input type="submit" value="登录" name="Submit" class="i_text">
+			<input type="button" value="注册" name="register"  class="i_text" onclick="location='register.jsp'">
+			<input type="button" value="游客" name="visiter"  class="i_text" onclick="location='Visiter.jsp'">
+			</table>
+			</div>
+		</form>
+	</div>
+</div>
+</body>
